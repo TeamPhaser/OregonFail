@@ -36,7 +36,7 @@ var Menu = {
     startButton.destroy();
 
     game.add.button(100, 100, 'newGameButton', function(){
-      console.log('clicked!')
+      this.state.start('Start');
     }, this);
     game.add.button(100, 200, 'loadGameButton', function(){
       console.log('clicked!')
