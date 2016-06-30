@@ -8,6 +8,6 @@ game.state.add('Game', Game);
 
 game.state.add('Game_Over', Game_Over);
 
-game.state.add('Start', Start);
+game.state.add('GameSetup', GameSetup);
 
 game.state.start('Menu')

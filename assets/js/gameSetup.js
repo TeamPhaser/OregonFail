@@ -1,4 +1,4 @@
-var Start = {
+var GameSetup = {
 	preload: function() {
 		game.load.image('background', './assets/images/riverWithTree2.png');
 	},
