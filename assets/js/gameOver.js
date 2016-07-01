@@ -1,4 +1,4 @@
-var Game_Over = {
+var GameOver = {
 
     preload : function() {
         // Load the needed image for this game screen.
