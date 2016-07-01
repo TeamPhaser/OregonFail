@@ -24,5 +24,8 @@
     "heroku",
     "express"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "phaser-input": "^1.1.4"
+  }
 }

@@ -6,39 +6,21 @@ var GameSetup = {
 	},
 
 	create: function() {
-		// create background image to game
-		background = game.add.sprite(0, 0, 'background');
-		// scale background to fit game screen
-		background.scale.setTo(2.79);
+    // plugin for text-input fields in canvas
+    game.add.plugin(Fabrique.Plugins.InputField);
 
-		// Styling stuff!
-		var style = { font: "32px Arial", fill: "black", align: "center", backgroundColor: "#eef" };
-		// create text 
-		text = game.add.text(30, 0, "Welcome to the Oregon Trail", style);
-		text.alpha = 0;
-		text.scale.x = .4;
-		text.scale.y = .4;
 
-		// Create black overlay
-		black = game.add.sprite(0, 0, 'black');
-		// Fade the black overlay out
-		game.add.tween(black).to({alpha: 0}, 2000, 'Linear', true, 0);
+    this.animateTitle();
+    this.animateBird();
 
-		setTimeout(function(){
-			// Animating movement
-			game.add.tween(text).to({
-				x: 10,
-				y: 50,
-				alpha: 1,
-			}, 2000, 'Linear', true, 0);
+    var nameInput = textInput(40, 200, 'Enter your name');
+    var companion1 = textInput(40, 250, 'Enter companion 1');
+    var companion2 = textInput(40, 280, 'Enter companion 2');
+    var companion3 = textInput(40, 310, 'Enter companion 3');
+    var companion4 = textInput(40, 340, 'Enter companion 4');
+	},
 
-			// Animating scale
-			game.add.tween(text.scale).to({
-				x: 1,
-				y: 1,
-			}, 2000, 'Linear', true, 0);
-		}, 1500);
-
+  animateBird: function() {
 		var bird = game.add.sprite(800, 200, 'bird');
 		var fly = bird.animations.add('fly');
 
@@ -50,6 +32,56 @@ var GameSetup = {
 
 		bird.body.velocity.x = -150;
 		bird.body.velocity.y = -15;
-	}
+  },
+
+  animateTitle: function() {
+		// create background image to game
+		background = game.add.sprite(0, 0, 'background');
+		// scale background to fit game screen
+		background.scale.setTo(2.79);
+
+		// Styling stuff!
+		var style = { font: "32px Arial", fill: "black", align: "center", backgroundColor: "#eef" };
+		// create text 
+		title = game.add.text(30, 0, "Welcome to the Oregon Trail", style);
+		title.alpha = 0;
+		title.scale.x = .4;
+		title.scale.y = .4;
+
+		// Create black overlay
+		black = game.add.sprite(0, 0, 'black');
+		// Fade the black overlay out
+		game.add.tween(black).to({alpha: 0}, 2000, 'Linear', true, 0);
+
+		setTimeout(function(){
+			// Animating movement
+			game.add.tween(title).to({
+				x: 10,
+				y: 50,
+				alpha: 1,
+			}, 2000, 'Linear', true, 0);
+
+			// Animating scale
+			game.add.tween(title.scale).to({
+				x: 1,
+				y: 1,
+			}, 2000, 'Linear', true, 0);
+		}, 1500);
+  }
 }
 
+// helper function for creating text inputs on canvas
+function textInput(x, y, placeholder) {
+  return game.add.inputField(x, y, {
+    font: '18px Arial',
+    fill: '#212121',
+    fontWeight: 'bold',
+    width: 200,
+    height: 10,
+    padding: 5,
+    borderWidth: 1,
+    borderColor: '#000',
+    borderRadius: 6,
+    placeHolder: placeholder
+  });
+}
