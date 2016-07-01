@@ -6,7 +6,6 @@ var Menu = {
 		var style = { font: "32px Arial", fill: "black", align: "center", backgroundColor: "#eef" };
 		this.game.stage.backgroundColor = '#71c5cf'
 
-
 	 	text = game.add.text(300, 50, "The Oregon Trail", style);
 	 	text.anchor.set(0.5);
 		game.load.image('background', './assets/images/title.png')
@@ -24,14 +23,15 @@ var Menu = {
     text = game.add.text(300, 50, "The Oregon Trail", style);
 	 	text.anchor.set(0.5);
 
+    // add start button and set variable to be destroyed later
 	 	startButton = game.add.button(285, 265, 'startButton', this.clickStartButton, this);
-
 	},
 
 	startGame: function() {
 		this.state.start('Game')
 	},
 
+  // destroy start button and display new game and load game buttons
   clickStartButton: function() {
     startButton.destroy();
 
@@ -42,7 +42,4 @@ var Menu = {
       console.log('clicked!')
     }, this);
   }
-
-
-
 }
