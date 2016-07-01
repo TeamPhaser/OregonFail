@@ -2,6 +2,7 @@ var GameSetup = {
 	preload: function() {
 		game.load.image('background', './assets/images/riverWithTree2.png');
 		game.load.image('black', './assets/images/blackScreen.png');
+		game.load.spritesheet('bird', './assets/images/animeBirdFlyingSheet.png', 45, 45, 5);
 	},
 
 	create: function() {
@@ -37,5 +38,23 @@ var GameSetup = {
 				y: 1,
 			}, 2000, 'Linear', true, 0);
 		}, 1500);
+		var bird = game.add.sprite(800, 200, 'bird');
+
+		//  Here we add a new animation called 'walk'
+		//  Because we didn't give any other parameters it's going to make an animation from all available frames in the 'bird' sprite sheet
+		var walk = bird.animations.add('walk');
+
+		//  And this starts the animation playing by using its key ("walk")
+		//  30 is the frame rate (30fps)
+		//  true means it will loop when it finishes
+		bird.animations.play('walk', 10, true);
+
+		game.physics.enable(bird, Phaser.Physics.ARCADE);
+
+		bird.body.velocity.x=-150;
+		bird.body.velocity.y=-15;
+
 	}
+
 }
+
