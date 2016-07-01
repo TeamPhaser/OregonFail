@@ -9,15 +9,9 @@ var GameSetup = {
     // plugin for text-input fields in canvas
     game.add.plugin(Fabrique.Plugins.InputField);
 
-
     this.animateTitle();
     this.animateBird();
-
-    var nameInput = textInput(40, 200, 'Enter your name');
-    var companion1 = textInput(40, 250, 'Enter companion 1');
-    var companion2 = textInput(40, 280, 'Enter companion 2');
-    var companion3 = textInput(40, 310, 'Enter companion 3');
-    var companion4 = textInput(40, 340, 'Enter companion 4');
+    this.createNameInputs();
 	},
 
   animateBird: function() {
@@ -67,7 +61,19 @@ var GameSetup = {
 				y: 1,
 			}, 2000, 'Linear', true, 0);
 		}, 1500);
+  },
+
+  createNameInputs: function() {
+		setTimeout(function(){
+      var nameInput = textInput(40, 200, 'Enter your name');
+      var companion1 = textInput(40, 250, 'Enter companion 1');
+      var companion2 = textInput(40, 280, 'Enter companion 2');
+      var companion3 = textInput(40, 310, 'Enter companion 3');
+      var companion4 = textInput(40, 340, 'Enter companion 4');
+    }, 4000);
   }
+
+
 }
 
 // helper function for creating text inputs on canvas
