@@ -18,9 +18,9 @@ var Menu = {
 		var style = { font: "32px Arial", fill: "black", align: "center", backgroundColor: "#eef" };
 		
 
-    background = game.add.tileSprite(0, 0, 800, 600, 'background');
+    	background = game.add.tileSprite(0, 0, 800, 600, 'background');
 
-    text = game.add.text(300, 50, "The Oregon Trail", style);
+    	text = game.add.text(300, 50, "The Oregon Trail", style);
 	 	text.anchor.set(0.5);
 
     // add start button and set variable to be destroyed later
