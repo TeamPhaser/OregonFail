@@ -22,7 +22,7 @@ var Menu = {
 	 	text.anchor.set(0.5);
 
     	game.add.button(300, 265, 'newGameButton', function(){
-    		this.state.start('GameSetup');
+    		this.state.start('Game');
     	}, this);
 	}
 }
