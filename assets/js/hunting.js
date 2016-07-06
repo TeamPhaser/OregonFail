@@ -114,7 +114,7 @@ var Hunting = {
         };
 
         game.camera.follow(hunter);
-        game.camera.deadzone = new Phaser.Rectangle(150, 150, 500, 300);
+        game.camera.deadzone = new Phaser.Rectangle(150, 150, 300, 175);
         game.camera.focusOnXY(0, 0);
 
     },
