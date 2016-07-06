@@ -6,5 +6,6 @@ game.state.add('Menu', Menu);
 game.state.add('GameSetup', GameSetup);
 game.state.add('Game', Game);
 game.state.add('GameOver', GameOver);
+game.state.add('Hunting', Hunting);
 
 game.state.start('Menu')

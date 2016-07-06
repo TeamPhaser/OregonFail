@@ -3,15 +3,24 @@ var GameSetup = {
 		game.load.image('background', './assets/images/riverWithTree2.png');
 		game.load.image('black', './assets/images/blackScreen.png');
 		game.load.spritesheet('bird', './assets/images/animeBirdFlyingSheet.png', 45, 45, 5);
+		game.load.image('continue', './assets/images/continue-gray.png')
 	},
 
 	create: function() {
-    // plugin for text-input fields in canvas
-    game.add.plugin(Fabrique.Plugins.InputField);
+	    // plugin for text-input fields in canvas
+	    game.add.plugin(Fabrique.Plugins.InputField);
 
-    this.animateTitle();
-    this.animateBird();
-    this.createNameInputs();
+	    this.animateTitle();
+	    this.animateBird();
+	    this.createNameInputs();
+	    setTimeout(() => {this.continue()}, 4200)
+	    
+	},
+
+	continue: function() {
+		game.add.button(400, 320, 'continue', function(){
+	    	this.state.start('Hunting');
+	    }, this);
 	},
 
   animateBird: function() {
